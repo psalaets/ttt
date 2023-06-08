@@ -16,14 +16,14 @@ export default function Game() {
   const matchId = stringValue(router.query, 'id');
   const {data: gameCredentials} = useGameCredentials();
 
-  const creds = gameCredentials && gameCredentials[matchId];
+  const creds = matchId && gameCredentials && gameCredentials[matchId];
   const {client, clientState} = useTicTacToeClient(
     matchId,
     creds ? creds.playerId : null,
     creds ? creds.credentials : null
   );
 
-  return (
+  return client ? (
     <>
       <Head>
         <title>Game {matchId}</title>
@@ -41,16 +41,16 @@ export default function Game() {
           />}
       </main>
     </>
-  );
+  ) : <div>Loading...</div>
 }
 
-function stringValue(query: ParsedUrlQuery, paramName: string): string {
+function stringValue(query: ParsedUrlQuery, paramName: string): string | null {
   const value = query[paramName];
   if (typeof value === 'string') {
     return value;
   } else if (Array.isArray(value)) {
     return value[0];
   } else {
-    throw new Error(`No ${paramName} found`);
+    return null;
   }
 }

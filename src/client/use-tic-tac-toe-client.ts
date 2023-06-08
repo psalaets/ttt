@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { create as createClient, ClientState, TicTacToeClient } from './tic-tac-toe-client';
 
-export function useTicTacToeClient(matchId: string, playerId: string | null, credentials: string | null) {
+export function useTicTacToeClient(matchId: string | null, playerId: string | null, credentials: string | null) {
   const clientRef = useRef<TicTacToeClient | null>(null);
   const [clientState, setClientState] = useState<ClientState>();
 
   useEffect(() => {
-    if (playerId && credentials) {
+    if (matchId && playerId && credentials) {
       const client = clientRef.current = createClient(matchId, playerId, credentials);
 
       // Connect and listen for state changes

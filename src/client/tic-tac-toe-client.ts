@@ -5,7 +5,6 @@ import { GAME_SERVER_URL } from './settings';
 
 export type TicTacToeClient = ReturnType<typeof Client<GameState>>;
 export type ClientState = ReturnType<TicTacToeClient['getState']>;
-export type ClientMoves = TicTacToeClient['moves'];
 
 export function create(matchId: string, playerId: string, credentials: string): TicTacToeClient {
   const c = Client({

@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 import type { Ctx } from "boardgame.io";
-import type { ClientMoves } from '@/client/tic-tac-toe-client';
-import type { GameState } from '@/game/tic-tac-toe';
+
+import type { GameState, ClientMoves } from '@/game/tic-tac-toe';
 
 export type BoardProps = {
   G: GameState,

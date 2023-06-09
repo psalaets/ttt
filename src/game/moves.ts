@@ -1,7 +1,7 @@
 import type { GameState } from './state';
 import { isCellEmpty } from './state';
 
-import type { Ctx, FnContext, Game, Move, MoveFn, LongFormMove, MoveMap } from 'boardgame.io';
+import type { Move, MoveFn, LongFormMove, MoveMap } from 'boardgame.io';
 import { INVALID_MOVE } from 'boardgame.io/core';
 
 type MoveFirstParam = Parameters<MoveFn<GameState, {}>>[0];

@@ -1,7 +1,7 @@
 import { Client } from 'boardgame.io/client';
 import { SocketIO } from 'boardgame.io/multiplayer'
 import { GameState, ticTacToe } from '../game/tic-tac-toe';
-import { GAME_SERVER_URL } from '../urls';
+import { GAME_SERVER_URL } from './urls';
 
 export type TicTacToeClient = ReturnType<typeof Client<GameState>>;
 export type ClientState = ReturnType<TicTacToeClient['getState']>;

@@ -5,5 +5,3 @@ if (!GAME_SERVER_URL) {
 }
 
 export const LOBBY_URL = GAME_SERVER_URL;
-
-export const UI_URL = process.env.UI_URL;

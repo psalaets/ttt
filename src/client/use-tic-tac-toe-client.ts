@@ -14,6 +14,8 @@ export function useTicTacToeClient(matchId: string | null, playerId: string | nu
       const unsub = client.subscribe(state => setClientState(state));
 
       return () => {
+        clientRef.current = null;
+
         unsub();
         client.stop();
       };
